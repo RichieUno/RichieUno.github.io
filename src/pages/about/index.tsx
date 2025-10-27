@@ -5,7 +5,7 @@ import Introduction from "./sections/introduction";
 import Experience from "./sections/experience";
 import Publication from "./sections/publication";
 import Project from "./sections/project";
-import Talk from "./sections/talk";
+import Voluntary from "./sections/voluntary";
 
 export default function About() {
     usePageTitle("About Me");
@@ -19,7 +19,7 @@ export default function About() {
             <Separator orientation="horizontal" className="max-w-5xl mt-8" />
             <Project />
             <Separator orientation="horizontal" className="max-w-5xl mt-8" />
-            <Talk />
+            <Voluntary />
         </div>
     );
 }

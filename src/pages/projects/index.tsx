@@ -14,12 +14,12 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { usePageTitle } from "@/hooks/use-pagetitle";
-import AllRepoData from "@/data/repos.json";
+import { ReposData } from "@/data/repos";
 
 type SortByType = "stars" | "updated" | "created";
 
-const allTopics = Array.from(
-    new Set(Object.values(AllRepoData).flatMap((repo) => repo.topics ?? []))
+const allTopics: string[] = Array.from(
+    new Set(Object.values(ReposData).flatMap((repo) => repo.topics ?? []))
 ).sort();
 
 export default function Projects() {
@@ -54,16 +54,16 @@ export default function Projects() {
         navigate({ search: params.toString() }, { replace: true });
     };
 
-    const filteredProjects = (Object.keys(AllRepoData) as (keyof typeof AllRepoData)[])
+    const filteredProjects = (Object.keys(ReposData) as (keyof typeof ReposData)[])
         .filter((project_name) => {
-            const project = AllRepoData[project_name];
+            const project = ReposData[project_name];
             const topics = (project.topics ?? []) as string[];
             const matchesTopic = topicFilter === "all" || topics.includes(topicFilter);
             return matchesTopic;
         })
         .sort((a, b) => {
-            const aData = AllRepoData[a];
-            const bData = AllRepoData[b];
+            const aData = ReposData[a];
+            const bData = ReposData[b];
 
             if (sortBy === "stars") {
                 return (bData.stargazers_count ?? 0) - (aData.stargazers_count ?? 0);
@@ -169,10 +169,10 @@ function ProjectCard({
     project_name,
     setTopicFilter,
 }: {
-    project_name: keyof typeof AllRepoData;
+    project_name: keyof typeof ReposData;
     setTopicFilter: (val: string) => void;
 }) {
-    const repo = AllRepoData[project_name];
+    const repo = ReposData[project_name];
     const {
         html_url,
         preview_image,

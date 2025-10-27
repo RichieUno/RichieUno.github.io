@@ -1,12 +1,10 @@
-import AllRepoData from "@/data/repos.json";
+import { ReposData } from "@/data/repos";
 
 export const featuredRepos = [
-    "simpleplain",
-    "pm25.github.io",
-    "SimplePlus-BeamerTheme",
-    "SimpleDarkBlue-BeamerTheme",
-    "Semi-Supervised-Regression",
-    "simpleplain",
-] as (keyof typeof AllRepoData)[];
+    "SightOverSite",
+    "HighwayNavigation",
+    "RWR"
+    
+] as (keyof typeof ReposData)[];
 
-export const FeaturedRepoData = featuredRepos.map((key) => AllRepoData[key]);
+export const FeaturedRepoData = featuredRepos.map((key) => ReposData[key]);

@@ -1,9 +1,7 @@
 import {
     FaLinkedin,
-    FaGoogleScholar,
     FaRegIdBadge,
     FaGithub,
-    FaSquareFacebook,
 } from "react-icons/fa6";
 import profileImage from "../assets/profilePic.jpeg";
 import resumePdf from "../assets/CV_RichardKuhlmann.pdf"; 
